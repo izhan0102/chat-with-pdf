@@ -1,15 +1,33 @@
 {
-  "name": "pdf-text-extractor",
+  "name": "chat-with-pdf",
   "version": "1.0.0",
-  "description": "Extract text from PDF files",
-  "main": "server.js",
+  "description": "A web application that allows users to upload PDFs, extract text, and have a conversation with the document using AI.",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js"
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "deploy": "vercel deploy --prod",
+    "start": "vercel dev"
   },
+  "keywords": [
+    "pdf",
+    "text-extraction",
+    "ai",
+    "chat",
+    "groq",
+    "llama"
+  ],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "pdf-parse": "^1.1.1",
-    "groq-sdk": "^0.3.1"
+    "axios": "^1.6.2",
+    "formidable-serverless": "^1.1.1",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.11"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 } 

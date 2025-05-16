@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let pdfFileName = '';
     let chatHistory = [];
     
+    // API endpoints (relative paths for Vercel deployment)
+    const API_EXTRACT_TEXT = '/api/extract-text';
+    const API_ANALYZE_TEXT = '/api/analyze-text';
+    const API_CHAT_WITH_PDF = '/api/chat-with-pdf';
+    
     // Prevent default drag behaviors
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropArea.addEventListener(eventName, preventDefaults, false);
@@ -131,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('pdfFile', pdfFile);
         
         try {
-            const response = await fetch('/extract-text', {
+            const response = await fetch(API_EXTRACT_TEXT, {
                 method: 'POST',
                 body: formData
             });
@@ -208,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 try {
                     console.log("Sending extraction request");
-                    const extractResponse = await fetch('/extract-text', {
+                    const extractResponse = await fetch(API_EXTRACT_TEXT, {
                         method: 'POST',
                         body: formData
                     });
@@ -301,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show initial message immediately
             summaryMessage.style.display = 'flex';
 
-            const response = await fetch('/analyze-text', {
+            const response = await fetch(API_ANALYZE_TEXT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -410,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typingIndicator.style.display = 'flex';
         
         try {
-            const response = await fetch('/chat-with-pdf', {
+            const response = await fetch(API_CHAT_WITH_PDF, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
