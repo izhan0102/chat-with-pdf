@@ -1,51 +1,54 @@
-# PDF Text Extractor
+# Chat with PDF
 
-A simple web application that allows users to upload PDF files and extract all the text content, preserving the formatting as closely as possible.
+A web application that allows users to upload PDFs, extract text, and have a conversation with the document using AI.
 
 ## Features
 
-- Upload PDF files via drag-and-drop or file selector
-- Extract text with proper formatting and spacing
-- Copy extracted text to clipboard
-- Download extracted text as a TXT file
-- Responsive design for mobile and desktop
+- Upload and process PDF files
+- Extract text with proper formatting
+- Copy or download extracted text
+- Chat interface with PDF using LLaMA 3.3 70B model via Groq API
+- Responsive design for desktop and mobile
 
-## Prerequisites
+## Technology Stack
 
-- Node.js (version 14 or later)
-- npm (version 6 or later)
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express
+- **PDF Processing**: pdf-parse
+- **File Uploads**: Multer
+- **AI Integration**: Groq API with LLaMA 3.3 70B model
 
-## Installation
+## Setup & Installation
 
-1. Clone this repository or download the source code.
-2. Navigate to the project directory in your terminal.
-3. Install the dependencies:
+1. Clone the repository:
+   ```
+   git clone https://github.com/izhan0102/chat-with-pdf.git
+   cd chat-with-pdf
+   ```
 
-```bash
-npm install
-```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up your Groq API key:
+   - Get an API key from [Groq](https://console.groq.com/)
+   - Replace the API key in `server.js`
+
+4. Start the server:
+   ```
+   npm start
+   ```
+
+5. Access the application at `http://localhost:3000`
 
 ## Usage
 
-1. Start the server:
-
-```bash
-npm start
-```
-
-2. Open your web browser and navigate to `http://localhost:3000`.
-3. Upload a PDF file by dragging and dropping it into the designated area or by clicking on the area to select a file.
-4. Click the "Extract Text" button to process the PDF.
-5. Once processing is complete, the extracted text will be displayed below.
-6. You can copy the text to your clipboard or download it as a TXT file.
-
-## Technologies Used
-
-- Express.js - Web server framework
-- Multer - File upload handling
-- pdf-parse - PDF text extraction library
-- Vanilla JavaScript for frontend functionality
-- HTML5 and CSS3 for the user interface
+1. Upload a PDF file using drag-and-drop or file selection
+2. Click "Extract Text" to view the formatted text content
+3. Click "Chat with PDF" to start a conversation with the document
+4. Ask questions about the document content
+5. The AI responds as if it is the document itself
 
 ## License
 
