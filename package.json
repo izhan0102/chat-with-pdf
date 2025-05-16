@@ -4,10 +4,11 @@
   "description": "A web application that allows users to upload PDFs, extract text, and have a conversation with the document using AI.",
   "main": "api/index.js",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "node server.js",
+    "vercel-dev": "vercel dev",
     "build": "vercel build",
     "deploy": "vercel deploy --prod",
-    "start": "vercel dev"
+    "start": "node server.js"
   },
   "keywords": [
     "pdf",
@@ -21,7 +22,10 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "formidable-serverless": "^1.1.1",
+    "multer": "^1.4.5-lts.1",
     "pdf-parse": "^1.1.1"
   },
   "devDependencies": {
