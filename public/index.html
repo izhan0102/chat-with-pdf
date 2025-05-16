@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Text Extractor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-content" id="mainContent">
+            <div class="container">
+                <header>
+                    <h1>PDF Text Extractor</h1>
+                    <p>Upload a PDF file to extract all text content.</p>
+                </header>
+                
+                <main>
+                    <section class="upload-section">
+                        <div class="upload-container" id="dropArea">
+                            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF icon" class="pdf-icon">
+                            <h2>Drop your PDF file here</h2>
+                            <p>or</p>
+                            <label for="pdfInput" class="upload-btn">Choose File</label>
+                            <p class="file-name" id="fileName">No file chosen</p>
+                        </div>
+                        <input type="file" id="pdfInput" accept=".pdf" style="display:none">
+                        <div class="action-buttons">
+                            <button id="extractBtn" class="extract-btn" disabled>Extract Text</button>
+                            <button id="analyzeBtn" class="analyze-btn" disabled>Chat with PDF</button>
+                        </div>
+                        <div class="loader" id="loader"></div>
+                    </section>
+                    
+                    <section class="result-section" id="resultSection">
+                        <h2>Extracted Text</h2>
+                        <div class="text-controls">
+                            <button id="copyBtn" class="control-btn">Copy Text</button>
+                            <button id="downloadBtn" class="control-btn">Download as TXT</button>
+                        </div>
+                        <div class="text-container">
+                            <pre id="extractedText"></pre>
+                        </div>
+                    </section>
+                </main>
+                
+                <footer>
+                    <p>&copy; 2023 PDF Text Extractor</p>
+                </footer>
+            </div>
+        </div>
+        
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header">
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2>Chat with Your PDF</h2>
+                <p class="pdf-title" id="pdfTitle">No PDF selected</p>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message" id="summaryMessage">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">
+                            <p>Ask your questions about the PDF...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <textarea id="chatInput" placeholder="Ask something about your PDF..." rows="1" disabled></textarea>
+                <button id="sendMessage" class="send-button" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
